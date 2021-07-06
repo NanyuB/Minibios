@@ -71,7 +71,7 @@ links: Array<Link> = []
     let newlink: Link={
       type: this.t.type.value,
       title: this.t.title.value,
-      link: this.t.title.value
+      link: this.t.link.value
     }
     this.links.push(newlink)
     

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
+import { Link } from 'src/app/shared/model/links';
 import { Minibio } from 'src/app/shared/model/minibio';
 import { MinibioService } from 'src/app/shared/services/minibio.service';
 
@@ -13,6 +14,9 @@ import { MinibioService } from 'src/app/shared/services/minibio.service';
 export class CreateBioComponent implements OnInit {
  bioForm: FormGroup
  id="";
+ isSubmitted = false;
+ types: any = ['Web', 'Youtube', 'Twitch', 'Instagram', 'Twitter', 'Github','Linkedin','Facebook','Reddit','Tiktok','Pinterest']
+ linkForm: FormGroup
   constructor(
     private fb:FormBuilder, 
     private notifier: NotifierService, 
@@ -20,40 +24,37 @@ export class CreateBioComponent implements OnInit {
     private route: ActivatedRoute,
     private router : Router ) {
     this.bioForm=this.fb.group({
-title: ["",Validators.required],
-description: ["",Validators.required],
-image: ["",Validators.required],
-linkTitle1: ["",Validators.required],
-linkURL1: ["",Validators.required],
-linkTitle2: ["",Validators.required],
-linkURL2: ["",Validators.required],
-linkTitle3: ["",Validators.required],
-linkURL3: ["",Validators.required]
-    })
+      title: ["",Validators.required],
+        description: ["",Validators.required],
+        image: ["",Validators.required],})
+      this.linkForm=this.fb.group({
+        type: ['', [Validators.required]],
+        title: ['',[Validators.required]],
+        link:['',[Validators.required]]
+      })
    }
-   get f() {
+ 
+  get f() {
     return this.bioForm.controls
   }
-minibio : any;
+  get t(){
+    return this.linkForm.controls
+  }
 
+minibio : any;
+links: Array<Link> = [] 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') as string;
      console.log(this.id)
      if (this.id != null) {
       this.minibioService.loadMinibio(this.id).subscribe(data => {
         this.minibio = data.data()
+        this.links = this.minibio.links
         console.log(this.minibio)
         this.bioForm.patchValue({          
         title: this.minibio?.title,
         description: this.minibio?.description,
         image: this.minibio?.image,
-        linkTitle1: this.minibio?.linkTitle1,
-        linkURL1: this.minibio?.linkURL1,
-        linkTitle2: this.minibio?.linkTitle2,
-        linkURL2: this.minibio?.linkURL2,
-        linkTitle3: this.minibio?.linkTitle3,
-        linkURL3: this.minibio?.linkURL3,
-
         })
       },
         error => {
@@ -62,7 +63,20 @@ minibio : any;
       )
     }
   };
-  
+  guardarlink(){
+    if(this.linkForm.invalid) {
+      this.notifier.notify('error', 'Los datos no son válidos');
+      return
+    }
+    let newlink: Link={
+      type: this.t.type.value,
+      title: this.t.title.value,
+      link: this.t.title.value
+    }
+    this.links.push(newlink)
+    
+    this.notifier.notify('success', "Nuevo enlace creado")
+  }
   savebio() {
     if(this.bioForm.invalid) {
       this.notifier.notify('error', 'Los datos no son válidos');
@@ -73,12 +87,8 @@ minibio : any;
     title: this.f.title.value,
     description: this.f.description.value,
     image: this.f.image.value,
-    linkTitle1: this.f.linkTitle1.value,
-    linkURL1: this.f.linkURL1.value,
-    linkTitle2: this.f.linkTitle2.value,
-    linkURL2: this.f.linkURL2.value,
-    linkTitle3: this.f.linkTitle3.value,
-    linkURL3: this.f.linkURL3.value,
+    id: this.f.title.value,
+    links: this.links
     }
     this.minibioService.createMinibio(miniBio).then(success => {
       this.notifier.notify('success', "Todo ok!")
@@ -93,12 +103,7 @@ minibio : any;
      title: this.f.title.value,
      description: this.f.description.value,
      image: this.f.image.value,
-     linkTitle1: this.f.linkTitle1.value,
-     linkURL1: this.f.linkURL1.value,
-     linkTitle2: this.f.linkTitle2.value,
-     linkURL2: this.f.linkURL2.value,
-     linkTitle3: this.f.linkTitle3.value,
-     linkURL3: this.f.linkURL3.value,
+     links: this.links
      }
    this.minibioService.updateMinibio(this.minibio.id, miniBio).then(success => {
     this.notifier.notify('success', "Todo ok!")
@@ -107,5 +112,9 @@ minibio : any;
     this.notifier.notify('error', 'Ups, ha ocurrido un error');
    })
  }
-
+ borrarlink(linkaborrar : Link): void {
+  this.links = this.links.filter(
+    (i: { type: string; title: string; link: string;}) => i != linkaborrar
+  );
+}
 }

@@ -1,5 +1,5 @@
 <div class="cajita">
-  <div class="container col-xl-3 col-md-7">
+  <div class="container col-xl-3 col-md-7" [class.vh-100]="links.length <= 2 || !links.length">
     <app-menu-user></app-menu-user>
     <div class="card">
       <h4>Crea tu minibio</h4>
@@ -10,7 +10,7 @@
             formControlName="title"
             class="form-control"
             id="floatingInput"
-            placeholder="name@example.com"
+            placeholder="mi titulo"
           />
           <label for="floatingInput">Titulo</label>
         </div>
@@ -20,7 +20,7 @@
             formControlName="description"
             class="form-control"
             id="floatingInput"
-            placeholder="name@example.com"
+            placeholder="mi descripcion"
           />
           <label for="floatingInput">Descripción</label>
         </div>
@@ -30,85 +30,135 @@
             formControlName="image"
             class="form-control"
             id="floatingInput"
-            placeholder="name@example.com"
+            placeholder="mi imagen"
           />
           <label for="floatingInput">Url imagen</label>
         </div>
-        <h5>Enlace 1</h5>
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            formControlName="linkTitle1"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label for="floatingInput">Titulo enlace</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            formControlName="linkURL1"
-            type="text"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label for="floatingInput">Url de enlace</label>
-        </div>
-        <h5>Enlace 2</h5>
 
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            formControlName="linkTitle2"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label for="floatingInput">Titulo enlace</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            formControlName="linkURL2"
-            type="text"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label for="floatingInput">Url de enlace</label>
-        </div>
 
-        <h5>Enlace 3</h5>
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            formControlName="linkTitle3"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label for="floatingInput">Titulo enlace</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            formControlName="linkURL3"
-            type="text"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-          />
-          <label for="floatingInput">Url de enlace</label>
-        </div>
-        <div class="boton">
-          <button *ngIf="id == null" class="btn btn-primary" type="button" (click)="savebio()">
-            Guardar
-          </button>
-          <button *ngIf="id != null" class="btn btn-primary" type="button" (click)="updatePost()">
-            Actualizar
-          </button>
-        </div>
+
+        <!-- Button trigger modal -->
+
       </form>
+        <div class="crearlink">
+        <button
+          type="button"
+          class="btn btn-secundary"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          <i class="fas fa-plus"></i>
+          <span>Enlace</span>
+        </button>
+        
+      </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Nuevo enlace</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <!-- crear link -->
+
+              <form class="form-floating" [formGroup]="linkForm" >
+                <div class="form-floating mb-3">
+                <select id="select"class="form-select" aria-label="Default select example" formControlName="type">
+                  <option *ngFor="let tipo of types" [ngValue]="tipo">{{tipo}}
+                  </option>
+               </select>
+               <label for="select">Elige tu tipo de enlace</label>
+              </div>
+               <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  formControlName="title"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Titulo enlace"
+                />
+                <label for="floatingInput">Titulo de enlace</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  formControlName="link"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="url enlace"
+                />
+                <label for="floatingInput">Url de enlace</label>
+              </div>
+
+              </form>
+            </div>
+            <div class="boton">
+            <button
+              type="button"
+              class="btn btn-primary margin"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary margin" (click)="guardarlink()" data-bs-dismiss="modal">
+              Guardar
+            </button>
+          </div>
+          </div>
+        </div>
+      </div>
+
+<!-- lista de link -->
+<div class="card" *ngFor="let enlace of links" style="margin-top: 15px;">
+  <div class="juntos">
+    <h5>{{enlace.title}}</h5>
+    <button class="btn btn-primary borrar" (click)="borrarlink(enlace)"><i class="fas fa-minus"></i></button>
+  </div>
+  <p>{{enlace.type}}</p>
+ 
+
+
+</div>
+
+
+
+
+
+
+
+<div class="boton">
+  <button
+    *ngIf="id == null"
+    class="btn btn-primary"
+    type="button"
+    (click)="savebio()"
+  >
+    Guardar
+  </button>
+  <button
+    *ngIf="id != null"
+    class="btn btn-primary"
+    type="button"
+    (click)="updatePost()"
+  >
+    Actualizar
+  </button>
+</div>
     </div>
   </div>
 </div>
-

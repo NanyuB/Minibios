@@ -21,6 +21,7 @@ import { MinibioComponent } from './components/minibio/minibio.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { MinibioComponent } from './components/minibio/minibio.component';
     CreateBioComponent,
     MenuUserComponent,
     MinibioComponent,
+
    
   ],
   imports: [

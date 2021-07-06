@@ -18,7 +18,9 @@
     }
     .usuario {
         font-family: $myfont;
-        color: $myfavoritecolorlight
+        color: $myfavoritecolorlight;
+        margin-top: 30px;
+        margin-bottom: 20px;
     }
     .descripcion{
         font-family: $myfont;
@@ -92,6 +94,8 @@
     .usuario {
         font-family: $myfont;
         color: $myfavoritecolordark;
+        margin-top: 30px;
+        margin-bottom: 20px;
     }
     .descripcion{
         font-family: $myfont;

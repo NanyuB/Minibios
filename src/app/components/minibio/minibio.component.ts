@@ -21,7 +21,8 @@ export class MinibioComponent implements OnInit {
     this.minibioService.getMiniBioPublic(userId, bioId).subscribe(data => {
     this.minibio = data.data() as Minibio
     this.minibio.id = data.id}
-    )}
+    )
+  console.log(this.minibio)}
 
     ngOnInit(): void {
     }

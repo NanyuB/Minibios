@@ -6,7 +6,9 @@
     <div *ngFor="let red of minibio.links">
       <a class="links" href="{{red.link}}">
         <div class="left-item">
-        <i class="fab" 
+        <i class="" 
+        [class.fab]="red.type !== 'Web'"
+        [class.fas]="red.type === 'Web'"
         [class.fa-github]="red.type === 'Github'"
         [class.fa-twitter]="red.type === 'Twitter'"
         [class.fa-youtube]="red.type === 'Youtube'"

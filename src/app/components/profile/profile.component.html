@@ -1,0 +1,51 @@
+<div class="cajita">
+  <div class="row">
+    <div class="container vh-100">
+      <app-menu-user></app-menu-user>
+      <div class="boton">
+        <button class="btn btn-light minibionew" (click)="btncreatebio()">
+          Crear nueva minibio
+        </button>
+      </div>
+      <div class="minibios">
+        <div class="minibio mb-3" *ngFor="let minibio of minibios">
+          <div class="label">
+            <p class="align-self-center">{{minibio.title}}</p>
+            <button 
+           (click)="visit(minibio.id)"
+            class="btn btn-primary">Visitar</button>
+            <div class="btn-group dropend">
+              <button
+                class="btn btn-primary dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <button 
+                  routerLink="/edit-bio/{{ minibio.id }}"
+                  class="dropdown-item" type="button">
+                    <i class="fas fa-edit"></i>
+                    Editar
+                  </button>
+                </li>
+                <li>
+                  <button 
+                  class="dropdown-item" 
+                  type="button"
+                  (click)="borrarMinibio(minibio.id)">
+                    <i class="fas fa-trash-alt"></i>
+                    Borrar
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p>{{minibio.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

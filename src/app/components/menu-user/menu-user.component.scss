@@ -1,0 +1,11 @@
+.user {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-start;
+    margin-top: 10px;
+    .foto {
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+    }
+}

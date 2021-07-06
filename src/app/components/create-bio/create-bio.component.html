@@ -1,0 +1,114 @@
+<div class="cajita">
+  <div class="container col-xl-3 col-md-7">
+    <app-menu-user></app-menu-user>
+    <div class="card">
+      <h4>Crea tu minibio</h4>
+      <form class="form-floating" [formGroup]="bioForm">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="title"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Titulo</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="description"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Descripción</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="image"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Url imagen</label>
+        </div>
+        <h5>Enlace 1</h5>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="linkTitle1"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Titulo enlace</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            formControlName="linkURL1"
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Url de enlace</label>
+        </div>
+        <h5>Enlace 2</h5>
+
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="linkTitle2"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Titulo enlace</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            formControlName="linkURL2"
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Url de enlace</label>
+        </div>
+
+        <h5>Enlace 3</h5>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="linkTitle3"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Titulo enlace</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            formControlName="linkURL3"
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Url de enlace</label>
+        </div>
+        <div class="boton">
+          <button *ngIf="id == null" class="btn btn-primary" type="button" (click)="savebio()">
+            Guardar
+          </button>
+          <button *ngIf="id != null" class="btn btn-primary" type="button" (click)="updatePost()">
+            Actualizar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

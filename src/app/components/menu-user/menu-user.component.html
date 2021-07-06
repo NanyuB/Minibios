@@ -1,0 +1,27 @@
+<div class="dropdown user">
+    <button
+      class="btn btn-light dropdown-toggle"
+      type="button"
+      id="dropdownMenu2"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+      style="border-radius:50px;"
+    >
+      <img class="foto" style="margin-right: 10px"src="{{ user.photoURL }}" />
+      <b style="color: rgb(172, 23, 68)">{{ user.displayName }}</b>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li>
+        <button class="dropdown-item" type="button" (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          Desconectarse
+        </button>
+      </li>
+      <li>
+        <button class="dropdown-item" type="button">
+          <i class="fas fa-user-edit"></i>
+          Editar perfil
+        </button>
+      </li>
+    </ul>
+  </div>

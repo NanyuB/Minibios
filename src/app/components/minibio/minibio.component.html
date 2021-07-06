@@ -1,0 +1,38 @@
+<div [class.contenedorlight]="!isNightMode" [class.contenedordark]="isNightMode">
+    <img src="{{minibio.image}}" class="foto" alt="{{minibio.title}}" />
+    <h1 class="usuario">{{minibio.title}}</h1>
+    <p class="descripcion">{{minibio.description}}</p>
+    <p class="descripcion">Visita los link oficiales</p>
+      <a class="links" href="{{minibio.linkURL1}}">
+        <div class="left-item">
+        <i class="fab fa-github"></i>
+      </div>
+      <div class="right-item">
+        <p>{{minibio.linkTitle1}}</p>
+      </div>
+    </a>
+
+    <a class="links" href="{{minibio.linkURL2}}">
+        <div class="left-item">
+        <i class="fab fa-twitter"></i>
+      </div>
+      <div class="right-item">
+        <p>{{minibio.linkTitle2}}</p>
+      </div>
+    </a>
+
+    <a class="links" href="{{minibio.linkURL3}}">
+        <div class="left-item">
+        <i class="fab fa-youtube"></i>
+      </div>
+      <div class="right-item">
+        <p>{{minibio.linkTitle3}}</p>
+      </div>
+    </a>
+ 
+    <button class="btn-change"(click)="darkMode()">
+      <i *ngIf="isNightMode"class="fas fa-sun"></i>
+      <i *ngIf="!isNightMode" class="fas fa-moon"></i>
+  
+    </button>
+</div>

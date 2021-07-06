@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fir-bio-712c3": {
+      "hosting": {
+        "Linkbio": [
+          "fir-bio-712c3"
+        ]
+      }
+    }
+  }
+}

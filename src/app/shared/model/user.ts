@@ -4,5 +4,6 @@ email: string;
 displayName: string;
 photoURL: string;
 emailVerified: boolean;
-username?: string
+username?: string;
+image?: string;
 }

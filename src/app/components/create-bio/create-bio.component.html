@@ -4,6 +4,8 @@
     <div class="card">
       <h4>Crea tu minibio</h4>
       <form class="form-floating" [formGroup]="bioForm">
+        
+        <div *ngIf="downloadURL || mainImage" class="foto mb-3"><img [src]="(downloadURL | async) || mainImage" class="img-thumbnail" alt="..."></div>
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -24,15 +26,25 @@
           />
           <label for="floatingInput">Descripción</label>
         </div>
-        <div class="form-floating mb-3">
+        <div class="form mb-3">
+          <input
+            type="file"
+            (change)="uploadFile($event)"
+            class="form-control"
+            id="floatingInput"
+            placeholder="mi imagen"
+          />
+        </div>
+        <div class="form-floating d-none mb-3">
           <input
             type="text"
             formControlName="image"
             class="form-control"
             id="floatingInput"
-            placeholder="mi imagen"
+            placeholder="url enlace"
+            
           />
-          <label for="floatingInput">Url imagen</label>
+          <label for="floatingInput">Url de enlace</label>
         </div>
 
 

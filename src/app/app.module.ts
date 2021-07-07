@@ -17,6 +17,7 @@ import { NotifierModule } from 'angular-notifier';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MinibioComponent } from './components/minibio/minibio.component';
 import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
+import { AngularFireStorageModule, BUCKET  } from '@angular/fire/storage';
 
 
 
@@ -47,9 +48,11 @@ import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.compon
     AngularFireAuthModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireStorageModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+    { provide: BUCKET, useValue: environment.firebase.storageBucket }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

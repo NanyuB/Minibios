@@ -76,6 +76,7 @@ export class AuthService {
   updateLocalData(user: any){
     const data = this.userData()
     data.username = user.username
+    data.image = user.image
     sessionStorage.setItem('user', JSON.stringify(data))
   }
 }

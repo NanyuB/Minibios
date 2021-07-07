@@ -85,3 +85,13 @@ margin-right: 5px;
             }
         }
     }
+    .foto{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+ img{
+    width: 154px;
+    height: 154px;
+    border-radius: 50%;
+ }
+}

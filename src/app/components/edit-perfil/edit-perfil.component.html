@@ -1,4 +1,7 @@
 <form class="form-floating" [formGroup]="mForm"(ngSubmit)="saveUser()">
+
+    <div *ngIf="downloadURL || mainImage || foto" class="foto mb-3"><img [src]="(downloadURL | async) || mainImage || foto" class="img-thumbnail" alt="..."></div>
+    
   <div class="form-floating mb-3">
     <input
       type="text"
@@ -8,6 +11,27 @@
       formControlName="username"
     />
     <label for="floatingInputValue">Nombre de usuario</label>
+  </div>
+
+  <div class="form mb-3">
+    <input
+      type="file"
+      (change)="uploadFile($event)"
+      class="form-control"
+      id="floatingInput"
+      placeholder="mi imagen"
+    />
+  </div>
+  <div class="form-floating d-none mb-3">
+    <input
+      type="text"
+      formControlName="image"
+      class="form-control"
+      id="floatingInput"
+      placeholder="url enlace"
+      
+    />
+    <label for="floatingInput">Url de enlace</label>
   </div>
   <button type="submit" class="btn btn-primary"data-bs-dismiss="modal">Guardar</button>
 </form>

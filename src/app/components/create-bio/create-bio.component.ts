@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
+import { Observable } from 'rxjs';
 import { Link } from 'src/app/shared/model/links';
 import { Minibio } from 'src/app/shared/model/minibio';
 import { MinibioService } from 'src/app/shared/services/minibio.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-bio',
@@ -17,16 +20,22 @@ export class CreateBioComponent implements OnInit {
  isSubmitted = false;
  types: any = ['Web', 'Youtube', 'Twitch', 'Instagram', 'Twitter', 'Github','Linkedin','Facebook','Reddit','Tiktok','Pinterest']
  linkForm: FormGroup
+ percent:number=0
+ mainImage?: string
+ downloadURL?: Observable<string>;
+ uploadPercent?: Observable<any> ;
   constructor(
     private fb:FormBuilder, 
     private notifier: NotifierService, 
     private minibioService : MinibioService, 
     private route: ActivatedRoute,
-    private router : Router ) {
+    private router : Router,
+    private storage: AngularFireStorage ) {
     this.bioForm=this.fb.group({
       title: ["",[Validators.required]],
-        description: ["",[Validators.required]],
-        image: ["",[Validators.required]],})
+      description: ["",[Validators.required]],
+      image: ["",[Validators.required]],
+    })
       this.linkForm=this.fb.group({
         type: ['', [Validators.required]],
         title: ['',[Validators.required]],
@@ -49,6 +58,7 @@ links: Array<Link> = []
      if (this.id != null) {
       this.minibioService.loadMinibio(this.id).subscribe(data => {
         this.minibio = data.data()
+        this.mainImage = this.minibio.image
         this.links = this.minibio.links
         console.log(this.minibio)
         this.bioForm.patchValue({          
@@ -91,10 +101,12 @@ links: Array<Link> = []
     const miniBio: Minibio = {
     title: this.f.title.value,
     description: this.f.description.value,
-    image: this.f.image.value,
     id: this.f.title.value,
-    links: this.links
+    links: this.links,
+    image: this.f.image.value
     }
+this.downloadURL?.subscribe(data => {
+    miniBio.image = data})
     this.minibioService.createMinibio(miniBio).then(success => {
       this.notifier.notify('success', "Todo ok!")
       this.router.navigate(["/profile"])
@@ -102,6 +114,7 @@ links: Array<Link> = []
       this.notifier.notify('error', 'Ups, ha ocurrido un error');
     })
   }
+
 
  updatePost() {
    const miniBio: Minibio = {
@@ -122,4 +135,28 @@ links: Array<Link> = []
     (i: { type: string; title: string; link: string;}) => i != linkaborrar
   );
 }
+
+uploadFile(event: any) {
+  const file = event.target.files[0];
+  const filePath = Date.now() + file.name;
+  const fileRef = this.storage.ref(filePath);
+  const task = this.storage.upload(filePath, file)
+  // observe percentage changes
+  task.percentageChanges().subscribe(number => {
+    this.percent = number!
+  })
+  // get notified when the download URL is available
+  task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadURL = fileRef.getDownloadURL()
+        this.downloadURL.subscribe(data => {
+          this.bioForm.patchValue({
+            image: data
+          })
+        })
+      })
+   )
+  .subscribe()
+}
+
 }

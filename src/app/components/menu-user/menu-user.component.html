@@ -7,7 +7,7 @@
       aria-expanded="false"
       style="border-radius:50px;"
     >
-      <img class="foto" style="margin-right: 10px"src="{{ user.photoURL }}" />
+      <img class="foto" style="margin-right: 10px" [src]="fotopropia || user.photoURL" />
       <b *ngIf="!user.username"style="color: rgb(172, 23, 68)">{{ user.displayName }}</b>
       <b *ngIf="user.username"style="color: rgb(172, 23, 68)">{{ user.username }}</b>
     </button>
@@ -29,7 +29,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel2">Modal title</h5>
+            <h5 class="modal-title" id="staticBackdropLabel2">Editar perfil</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">

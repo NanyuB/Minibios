@@ -11,21 +11,23 @@ import { MinibioService } from 'src/app/shared/services/minibio.service';
 export class MinibioComponent implements OnInit {
   isNightMode: boolean = false;
 
-  minibio : any;
+  minibio: any;
   constructor(
-    private minibioService : MinibioService,
+    private minibioService: MinibioService,
     private route: ActivatedRoute,
-    ) { 
+  ) {
     let userId = this.route.snapshot.paramMap.get('userid') ?? ""
     let bioId = this.route.snapshot.paramMap.get('id') ?? ""
     this.minibioService.getMiniBioPublic(userId, bioId).subscribe(data => {
-    this.minibio = data.data() as Minibio
-    this.minibio.id = data.id}
-    )
-  console.log(this.minibio)}
-
-    ngOnInit(): void {
+      this.minibio = data.data() as Minibio
+      this.minibio.id = data.id
     }
+    )
+    console.log(this.minibio)
+  }
+
+  ngOnInit(): void {
+  }
 
   darkMode() {
     this.isNightMode = !this.isNightMode;

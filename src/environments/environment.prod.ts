@@ -7,5 +7,5 @@ export const environment = {
     storageBucket: "fir-bio-712c3.appspot.com",
     messagingSenderId: "379344240937",
     appId: "1:379344240937:web:4dbc492affc39b7d347738"
-    }
+  }
 };

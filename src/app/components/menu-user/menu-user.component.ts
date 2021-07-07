@@ -8,13 +8,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class MenuUserComponent implements OnInit {
   user: any
-  fotopropia : any
+  fotopropia: any
   constructor(
     private authService: AuthService) { }
 
 
   ngOnInit(): void {
-    this.user =this.authService.userData();
+    this.user = this.authService.userData();
     this.fotopropia = this.user.image
   }
   logout() {

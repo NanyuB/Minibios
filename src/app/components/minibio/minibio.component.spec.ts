@@ -8,9 +8,9 @@ describe('MinibioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MinibioComponent ]
+      declarations: [MinibioComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

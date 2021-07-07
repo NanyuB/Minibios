@@ -1,6 +1,6 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 
-.contenedorlight{
+.contenedorlight {
     max-width: 380px;
     width: 100%;
     padding-top: 80px;
@@ -22,64 +22,64 @@
         margin-top: 30px;
         margin-bottom: 20px;
     }
-    .descripcion{
+    .descripcion {
         font-family: $myfont;
         font-size: $myfontsize;
         line-height: 14px;
     }
-    .links{
-    background-color: #ffffff;
-    padding: 16px;
-    box-shadow: 0px 0px 20px 3px rgba(134, 34, 59, 0.2);
-    margin: 20px;
-    display: flex;
-    text-decoration: none;
-    color: #000000;
-    align-items: center;
-    .fab {
-        font-size: 60px;
-        color: $myfavoritecolorlight;
-    }
-    .fas {
-        font-size: 60px;
-        color: $myfavoritecolorlight;
-    }
-    .left-item{
-        width: 40%;
-    }
-    .right-item{
-        width: 60%;
-        p{
-        font-family: $myfont;
-        text-align: left;
-        font-size: $myfontsize;
+    .links {
+        background-color: #ffffff;
+        padding: 16px;
+        box-shadow: 0px 0px 20px 3px rgba(134, 34, 59, 0.2);
+        margin: 20px;
+        display: flex;
+        text-decoration: none;
+        color: #000000;
+        align-items: center;
+        .fab {
+            font-size: 60px;
+            color: $myfavoritecolorlight;
+        }
+        .fas {
+            font-size: 60px;
+            color: $myfavoritecolorlight;
+        }
+        .left-item {
+            width: 40%;
+        }
+        .right-item {
+            width: 60%;
+            p {
+                font-family: $myfont;
+                text-align: left;
+                font-size: $myfontsize;
+            }
+        }
+        &:hover {
+            opacity: 80%;
         }
     }
-    &:hover {
-        opacity: 80%;
-            }
-    }
 
- .btn-change {
-    padding: 8px 24px;
-    border-radius: 25px;
-    border: none;
-    background-color: white;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    .fas{
-        font-size: 24px;
+    .btn-change {
+        padding: 8px 24px;
+        border-radius: 25px;
+        border: none;
+        background-color: white;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        .fas {
+            font-size: 24px;
+        }
     }
- }
- .btn-change:hover {
-    background-color: black;
-    .fas{
-        color:white;
+    .btn-change:hover {
+        background-color: black;
+        .fas {
+            color: white;
+        }
     }
- }
 }
-.contenedordark{
+.contenedordark {
     max-width: 380px;
     width: 100%;
     padding-top: 80px;
@@ -101,63 +101,62 @@
         margin-top: 30px;
         margin-bottom: 20px;
     }
-    .descripcion{
+    .descripcion {
         font-family: $myfont;
         font-size: $myfontsize;
         line-height: 14px;
         color: white;
     }
-    .links{
-    background-color: #1f1f1f;
-    padding: 16px;
-    box-shadow: 0px 0px 20px 3px rgba(255, 163, 194, 0.05);
-    margin: 20px;
-    display: flex;
-    text-decoration: none;
-    color: white;
-    align-items: center;
-    .fab {
-        font-size: 60px;
-        color: rgb(255, 163, 194);
-    }
-    .fas{
-        font-size: 60px;
-        color: rgb(255, 163, 194);
-    }
-    .left-item{
-        width: 40%;
-    }
-    .right-item{
-        width: 60%;
-        p{
-        font-family: $myfont;
-        text-align: left;
-        font-size: $myfontsize;
+    .links {
+        background-color: #1f1f1f;
+        padding: 16px;
+        box-shadow: 0px 0px 20px 3px rgba(255, 163, 194, 0.05);
+        margin: 20px;
+        display: flex;
+        text-decoration: none;
+        color: white;
+        align-items: center;
+        .fab {
+            font-size: 60px;
+            color: rgb(255, 163, 194);
+        }
+        .fas {
+            font-size: 60px;
+            color: rgb(255, 163, 194);
+        }
+        .left-item {
+            width: 40%;
+        }
+        .right-item {
+            width: 60%;
+            p {
+                font-family: $myfont;
+                text-align: left;
+                font-size: $myfontsize;
+            }
+        }
+        &:hover {
+            opacity: 70%;
         }
     }
-    &:hover {
-        opacity: 70%;
-            }
-    }
 
- .btn-change {
-    padding: 8px 24px;
-    border-radius: 25px;
-    border: none;
-    background-color: black;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    .fas{
-        font-size: 24px;
-        color:white;
+    .btn-change {
+        padding: 8px 24px;
+        border-radius: 25px;
+        border: none;
+        background-color: black;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        .fas {
+            font-size: 24px;
+            color: white;
+        }
     }
- }
- .btn-change:hover {
-    background-color: white;
-    .fas{
-        color:black;
+    .btn-change:hover {
+        background-color: white;
+        .fas {
+            color: black;
+        }
     }
- }
- 
 }

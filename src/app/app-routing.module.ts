@@ -8,12 +8,12 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
-  {path:"", component: HomeComponent, pathMatch: "full"},
-  {path:"profile", component: ProfileComponent, canActivate: [AuthGuard]},
-  {path:"create-bio", component: CreateBioComponent, canActivate: [AuthGuard]},
-  {path:"edit-bio/:id", component: CreateBioComponent, canActivate: [AuthGuard]},
-  {path:"minibio/:userid/:id", component: MinibioComponent,},
-  {path:"profile/edit", component: EditPerfilComponent, canActivate: [AuthGuard]},
+  { path: "", component: HomeComponent, pathMatch: "full" },
+  { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: "create-bio", component: CreateBioComponent, canActivate: [AuthGuard] },
+  { path: "edit-bio/:id", component: CreateBioComponent, canActivate: [AuthGuard] },
+  { path: "minibio/:userid/:id", component: MinibioComponent, },
+  { path: "profile/edit", component: EditPerfilComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

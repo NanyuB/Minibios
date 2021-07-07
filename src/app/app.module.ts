@@ -17,7 +17,7 @@ import { NotifierModule } from 'angular-notifier';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MinibioComponent } from './components/minibio/minibio.component';
 import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
-import { AngularFireStorageModule, BUCKET  } from '@angular/fire/storage';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 
 
 
@@ -34,7 +34,7 @@ import { AngularFireStorageModule, BUCKET  } from '@angular/fire/storage';
     MinibioComponent,
     EditPerfilComponent,
 
-   
+
   ],
   imports: [
     NotifierModule.withConfig({

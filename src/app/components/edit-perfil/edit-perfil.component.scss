@@ -1,0 +1,25 @@
+.boton {
+    display: flex;
+    justify-content: flex-end;
+
+    .btn-primary {
+        border-radius: 20px;
+        background-color: rgb(223, 65, 112);
+        border-color: rgb(141, 12, 61);
+
+        .btn-primary:focus,
+        .btn-primary.focus {
+            box-shadow: 0 0 0 0.2rem rgba(253, 162, 200, 0.651);
+        }
+    }
+}
+.foto {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    img {
+        width: 154px;
+        height: 154px;
+        border-radius: 50%;
+    }
+}

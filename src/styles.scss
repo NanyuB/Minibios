@@ -1,18 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-$myfont: 'Arial';
+$myfont: "Arial";
 $bgGrey: #6a6a7b9c;
-$bglight:rgb(255, 255, 255);
+$bglight: rgb(255, 255, 255);
 $myfontsize: 19px;
-$myfavoritecolorlight: rgb(201, 64, 109) ;
-$myfavoritecolordark: rgb(255, 163, 194) ;
-$bgdark:rgb(20, 20, 20);
+$myfavoritecolorlight: rgb(201, 64, 109);
+$myfavoritecolordark: rgb(255, 163, 194);
+$bgdark: rgb(20, 20, 20);
 
-
-
-body{
+body {
     background-color: $bglight;
 
-    &.dark{
-    background-color: $bgdark;
+    &.dark {
+        background-color: $bgdark;
     }
- }
+}

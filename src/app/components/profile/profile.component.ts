@@ -10,13 +10,13 @@ import { MinibioService } from 'src/app/shared/services/minibio.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  minibios : Array<Minibio> = []
+  minibios: Array<Minibio> = []
   user: any
   isLoading = false
   constructor(
     private authService: AuthService,
     private router: Router,
-    private minibioService : MinibioService) { }
+    private minibioService: MinibioService) { }
 
   ngOnInit(): void {
     this.user = this.authService.userData()
@@ -26,11 +26,11 @@ export class ProfileComponent implements OnInit {
     this.router.navigateByUrl('/create-bio')
   }
 
-  loadMinibios(){
+  loadMinibios() {
     this.minibioService.loadMinibios().subscribe(data => {
       this.minibios = []
-      data.forEach((doc : any) =>{
-        let myminibio : Minibio = doc.data()
+      data.forEach((doc: any) => {
+        let myminibio: Minibio = doc.data()
         myminibio.id = doc.id
         this.minibios.push(myminibio)
         this.isLoading = false
@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  borrarMinibio(idminibio : any) {
+  borrarMinibio(idminibio: any) {
     this.minibioService.deleteMinibio(idminibio).then(success => {
       console.log("Se ha eliminado correctamente")
       this.loadMinibios()

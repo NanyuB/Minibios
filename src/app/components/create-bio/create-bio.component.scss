@@ -16,7 +16,7 @@
     margin-top: 60px;
 }
 .boton {
-    display: flex;  
+    display: flex;
 }
 .btn-primary {
     flex: 100%;
@@ -30,68 +30,67 @@
     box-shadow: 0 0 0 0.2rem rgba(253, 162, 200, 0.651);
 }
 input:focus,
-    input.focus {
-        box-shadow: 0 0 0 0.2rem rgba(253, 162, 200, 0.651);
-        border:1px solid rgb(141, 12, 61);
-    }
-    h4, h5 {
-        color:rgb(141, 12, 61);
-    }
+input.focus {
+    box-shadow: 0 0 0 0.2rem rgba(253, 162, 200, 0.651);
+    border: 1px solid rgb(141, 12, 61);
+}
+h4,
+h5 {
+    color: rgb(141, 12, 61);
+}
 
-    .margin {
-
-        width: 40%;
-        margin:15px 15px;    
+.margin {
+    width: 40%;
+    margin: 15px 15px;
+}
+.btn-secundary {
+    margin-top: 15px;
+    display: flex;
+    border-radius: 50px;
+    background-color: rgb(223, 65, 112);
+    border-color: rgb(141, 12, 61);
+    color: white;
+}
+.btn-secundary:focus,
+.btn-secundary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(253, 162, 200, 0.651);
+}
+.crearlink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: monospace;
+    font-weight: bold;
+}
+.fas {
+    align-self: center;
+    margin-right: 5px;
+}
+.form-select:focus,
+.form-select.focus {
+    box-shadow: 0 0 0 0.2rem rgba(253, 162, 200, 0.651);
+    border-color: rgb(141, 12, 61);
+}
+.juntos {
+    display: inline-flex;
+    h5 {
+        flex: 80%;
     }
-    .btn-secundary {
-        margin-top: 15px;
-        display: flex;
-        border-radius: 50px;
-        background-color: rgb(223, 65, 112);
-        border-color: rgb(141, 12, 61);
-        color: white;
-    }
-    .btn-secundary:focus,
-    .btn-secundary.focus {
-        box-shadow: 0 0 0 0.2rem rgba(253, 162, 200, 0.651);
-    }
-    .crearlink {
-        display: inline-flex;
-        align-items: center;
-        justify-content: space-between;
-        font-family: monospace;
-        font-weight: bold;
-    }
-    .fas {
-align-self: center;
-margin-right: 5px;
-    }
-    .form-select:focus,
-    .form-select.focus {
-        box-shadow: 0 0 0 0.2rem rgba(253, 162, 200, 0.651);
-        border-color: rgb(141, 12, 61);
-    }
-    .juntos {
-        display: inline-flex;
-        h5{
-            flex:80%
-        }
-        .borrar {
-            flex: 5%;
-            align-self: center;
-            i{
-                margin-right: -2px;
-
-            }
+    .borrar {
+        flex: 5%;
+        align-self: center;
+        i {
+            margin-right: -2px;
         }
     }
-    .foto{
-        width: 100%;
-        display: flex;
-        justify-content: center;
- img{
-    width: 154px;
-    height: 154px;
-    border-radius: 50%;
- }
+}
+.foto {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    img {
+        width: 154px;
+        height: 154px;
+        border-radius: 50%;
+    }
 }

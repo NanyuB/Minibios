@@ -1,35 +1,39 @@
-<div [class.contenedorlight]="!isNightMode" [class.contenedordark]="isNightMode">
-    <img src="{{minibio.image}}" class="foto" alt="{{minibio.title}}" />
-    <h1 class="usuario">{{minibio.title}}</h1>
-    <p class="descripcion">{{minibio.descripcion}}</p>
-    <p class="descripcion">Visita mis link oficiales</p>
-    <div *ngFor="let red of minibio.links">
-      <a class="links" href="{{red.link}}">
-        <div class="left-item">
-        <i class="" 
-        [class.fab]="red.type !== 'Web'"
-        [class.fas]="red.type === 'Web'"
-        [class.fa-github]="red.type === 'Github'"
-        [class.fa-twitter]="red.type === 'Twitter'"
-        [class.fa-youtube]="red.type === 'Youtube'"
-        [class.fa-linkedin]="red.type === 'Linkedin'"
-        [class.fa-globe]="red.type === 'Web'"
-        [class.fa-facebook-square]="red.type === 'Facebook'"
-        [class.fa-instagram]="red.type === 'Instagram'"
-        [class.fa-reddit-square]="red.type === 'Reddit'"
-        [class.fa-tiktok]="red.type === 'Tiktok'"
-        [class.fa-pinterest]="red.type === 'Pinterest'"
-        [class.fa-twitch]="red.type === 'Twitch'">
-    </i>
+<div
+  [class.contenedorlight]="!isNightMode"
+  [class.contenedordark]="isNightMode"
+>
+  <img src="{{ minibio.image }}" class="foto" alt="{{ minibio.title }}" />
+  <h1 class="usuario">{{ minibio.title }}</h1>
+  <p class="descripcion">{{ minibio.descripcion }}</p>
+  <p class="descripcion">Visita mis link oficiales</p>
+  <div *ngFor="let red of minibio.links">
+    <a class="links" href="{{ red.link }}">
+      <div class="left-item">
+        <i
+          class=""
+          [class.fab]="red.type !== 'Web'"
+          [class.fas]="red.type === 'Web'"
+          [class.fa-github]="red.type === 'Github'"
+          [class.fa-twitter]="red.type === 'Twitter'"
+          [class.fa-youtube]="red.type === 'Youtube'"
+          [class.fa-linkedin]="red.type === 'Linkedin'"
+          [class.fa-globe]="red.type === 'Web'"
+          [class.fa-facebook-square]="red.type === 'Facebook'"
+          [class.fa-instagram]="red.type === 'Instagram'"
+          [class.fa-reddit-square]="red.type === 'Reddit'"
+          [class.fa-tiktok]="red.type === 'Tiktok'"
+          [class.fa-pinterest]="red.type === 'Pinterest'"
+          [class.fa-twitch]="red.type === 'Twitch'"
+        >
+        </i>
       </div>
       <div class="right-item">
-        <p>{{red.title}}</p>
+        <p>{{ red.title }}</p>
       </div>
     </a>
-    </div>
-    <button class="btn-change"(click)="darkMode()">
-      <i *ngIf="isNightMode"class="fas fa-sun"></i>
-      <i *ngIf="!isNightMode" class="fas fa-moon"></i>
-  
-    </button>
   </div>
+  <button class="btn-change" (click)="darkMode()">
+    <i *ngIf="isNightMode" class="fas fa-sun"></i>
+    <i *ngIf="!isNightMode" class="fas fa-moon"></i>
+  </button>
+</div>

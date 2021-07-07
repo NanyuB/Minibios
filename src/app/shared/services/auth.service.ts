@@ -26,9 +26,11 @@ export class AuthService {
       }
       return this.fireStore.collection(`users`).doc(user.uid).set(userData, {
         merge: true
+      }).then(success => {
+        this.getCurrentUser()
       })
     }
-  
+
     isLoggedIn(): boolean {
       const user = sessionStorage.getItem('user');
       if(user) {
@@ -51,7 +53,13 @@ export class AuthService {
       })
   
     }
-  
+    getCurrentUser() {
+      const uid = this.userData().uid
+      this.fireStore.collection('users').doc(uid).get().subscribe(data => {
+        this.updateLocalData(data.data())
+      })
+
+    }
     signOut() {
       return this.fireAuth.signOut().then(() => {
         sessionStorage.removeItem('user');
@@ -59,6 +67,16 @@ export class AuthService {
       })
     }
 
-
-
+  updateProfile(user : any) {
+    const uid = this.userData().uid
+    return this.fireStore.collection(`users`).doc(uid).set(user, {
+      merge: true
+  })
   }
+  updateLocalData(user: any){
+    const data = this.userData()
+    data.username = user.username
+    sessionStorage.setItem('user', JSON.stringify(data))
+  }
+}
+  

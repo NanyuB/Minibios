@@ -24,9 +24,9 @@ export class CreateBioComponent implements OnInit {
     private route: ActivatedRoute,
     private router : Router ) {
     this.bioForm=this.fb.group({
-      title: ["",Validators.required],
-        description: ["",Validators.required],
-        image: ["",Validators.required],})
+      title: ["",[Validators.required]],
+        description: ["",[Validators.required]],
+        image: ["",[Validators.required]],})
       this.linkForm=this.fb.group({
         type: ['', [Validators.required]],
         title: ['',[Validators.required]],
@@ -76,6 +76,11 @@ links: Array<Link> = []
     this.links.push(newlink)
     
     this.notifier.notify('success', "Nuevo enlace creado")
+    this.linkForm.patchValue({          
+      title: "",
+      type: "",
+      link: "",
+      })
   }
   savebio() {
     if(this.bioForm.invalid) {

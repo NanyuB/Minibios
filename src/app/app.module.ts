@@ -16,6 +16,7 @@ import { MenuUserComponent } from './components/menu-user/menu-user.component';
 import { NotifierModule } from 'angular-notifier';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MinibioComponent } from './components/minibio/minibio.component';
+import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
 
 
 
@@ -30,6 +31,7 @@ import { MinibioComponent } from './components/minibio/minibio.component';
     CreateBioComponent,
     MenuUserComponent,
     MinibioComponent,
+    EditPerfilComponent,
 
    
   ],

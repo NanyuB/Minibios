@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateBioComponent } from './components/create-bio/create-bio.component';
+import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
 import { HomeComponent } from './components/home/home.component';
 import { MinibioComponent } from './components/minibio/minibio.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path:"profile", component: ProfileComponent, canActivate: [AuthGuard]},
   {path:"create-bio", component: CreateBioComponent, canActivate: [AuthGuard]},
   {path:"edit-bio/:id", component: CreateBioComponent, canActivate: [AuthGuard]},
-  {path:"minibio/:userid/:id", component: MinibioComponent,}
+  {path:"minibio/:userid/:id", component: MinibioComponent,},
+  {path:"profile/edit", component: EditPerfilComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

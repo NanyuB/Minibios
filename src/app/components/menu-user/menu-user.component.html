@@ -8,7 +8,8 @@
       style="border-radius:50px;"
     >
       <img class="foto" style="margin-right: 10px"src="{{ user.photoURL }}" />
-      <b style="color: rgb(172, 23, 68)">{{ user.displayName }}</b>
+      <b *ngIf="!user.username"style="color: rgb(172, 23, 68)">{{ user.displayName }}</b>
+      <b *ngIf="user.username"style="color: rgb(172, 23, 68)">{{ user.username }}</b>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
       <li>
@@ -18,10 +19,23 @@
         </button>
       </li>
       <li>
-        <button class="dropdown-item" type="button">
+        <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
           <i class="fas fa-user-edit"></i>
           Editar perfil
         </button>
       </li>
     </ul>
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel2">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <app-edit-perfil></app-edit-perfil>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>

@@ -1,0 +1,13 @@
+<form class="form-floating" [formGroup]="mForm"(ngSubmit)="saveUser()">
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInputValue"
+      placeholder="username"
+      formControlName="username"
+    />
+    <label for="floatingInputValue">Nombre de usuario</label>
+  </div>
+  <button type="submit" class="btn btn-primary"data-bs-dismiss="modal">Guardar</button>
+</form>

@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
   }
   login() {
     this.authService.googleAuth().then(success => {
-      this.router.navigate(["/profile"])
+
+     // this.router.navigate(["/profile"])
     }).catch(error => {
       console.log("Dale NO", error);
     })

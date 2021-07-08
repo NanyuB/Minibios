@@ -24,13 +24,14 @@ export class AuthService {
         photoURL: user.photoURL,
         emailVerified: user.emailVerified
       }
-      return this.fireStore.collection(`users`).doc(user.uid).set(userData, {
+      return this.fireStore.collection('users').doc(user.uid).set(userData, {
         merge: true
       }).then(success => {
-        this.getCurrentUser()
+        this.getCurrentUser().subscribe(data => {
+          this.updateLocalData(data.data())
+        })
       })
     }
-
     isLoggedIn(): boolean {
       const user = sessionStorage.getItem('user');
       if(user) {
@@ -55,9 +56,7 @@ export class AuthService {
     }
     getCurrentUser() {
       const uid = this.userData().uid
-      this.fireStore.collection('users').doc(uid).get().subscribe(data => {
-        this.updateLocalData(data.data())
-      })
+      return this.fireStore.collection('users').doc(uid).get()
 
     }
     signOut() {
@@ -77,7 +76,8 @@ export class AuthService {
     const data = this.userData()
     data.username = user.username
     data.image = user.image
-    sessionStorage.setItem('user', JSON.stringify(data))
+    sessionStorage.setItem('user', JSON.stringify(data));
+    this.router.navigate(['/profile'])
   }
 }
   
